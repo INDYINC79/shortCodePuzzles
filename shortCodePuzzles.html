@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<script>
+//-----------------------Sum an Array of Numbers-------------------
+var arrayOfNumber = [1, 2, 4, 8, 16, 32];
+console.log("1. Sum an Array of Numbers: " + sumOfNumbers(arrayOfNumber));
+
+function sumOfNumbers(anArray) {
+	var sum = 0;
+	for (var i = 0; i < anArray.length; i++){
+		sum = sum + anArray[i];
+	}
+
+	return sum;
+}
+
+//-----------------------Sum of Increments-------------------
+console.log("2. Sum of Increments: " + sumOfIncrements(3, 38, 6));
+
+function sumOfIncrements(start, stop, increment){
+	var sum = 0;
+	for (var i = start; i <= stop; i += increment){
+		sum = sum + i;
+	}
+
+	return sum;
+}
+
+//-----------------------Min and Max Values of an Array-----------------
+var minMaxArray = [8, 6, 10, 14, 12, 3, 4]
+console.log("3a. Min value in an array: " + minValue(minMaxArray));
+console.log("3b. Max value in an array: " + maxValue(minMaxArray));
+
+function minValue(anArray){
+	var minValue = anArray[0]
+	for(var i = 1; i < anArray.length; i++){
+		if(anArray[i] < minValue){
+			minValue = anArray[i];
+		}
+	}
+
+	return minValue;
+}
+
+function maxValue(anArray){
+	var maxValue = anArray[0]
+	for(var i = 1; i < anArray.length; i++){
+		if(anArray[i] > maxValue){
+			maxValue = anArray[i];
+		}
+	}
+
+	return maxValue;
+}
+
+//-----------------------Repeat a String-----------------
+console.log("4. Repeat a string: " + repeatString("Nick ", 5));
+
+function repeatString(phrase, timesRepeated){
+	var repeatedPhrase = "";
+
+	for(var i = 1; i <= timesRepeated; i++){
+		repeatedPhrase += phrase;
+	}
+
+	return repeatedPhrase;
+}
+
+//-----------------------Find the Factors of an Integer-----------------
+console.log("5. Factors of an Integer: "+ factorsOfAnInteger(21))
+
+function factorsOfAnInteger(aNumber){
+	var factors = [];
+
+	for(var i = 2; i<aNumber; i++){	
+		if(aNumber%i === 0){
+			factors.push(i);
+		}
+	}
+
+	return factors;
+}
+
+//-----------------------Random Number within a Range-----------------
+console.log("6. Random  Number withing a Range: " + randomNumber(4, 12));
+
+function randomNumber(min, max){
+	var random = Math.floor(Math.random()*(max-min+1)+min);
+	return random;
+}
+
+//-----------------------Random Element from an Array-----------------
+var randomArray = [8, 6, 10, 14, 12, 3, 4]
+
+console.log("7. Random Element from an Array: " + randomArrayFun(randomArray));
+
+function randomArrayFun(anArray){
+	var i = randomNumber(0, anArray.length-1);
+
+	return anArray[i];
+}
+
+//-----------------------Count Occurrences of a Character in a String-----------------
+console.log("8. Occurrences of a Character: " + numOccurrences("I'm a pretty little girl!", "i"));
+
+function numOccurrences(phrase, letter){
+	var letterCount = 0;
+
+	for(var i = 0; i < phrase.length; i++){
+		var a = phrase.charAt(i);
+		if(a.toUpperCase() === letter.toUpperCase()){
+			letterCount++;
+		}
+
+	}
+	return letterCount;
+}
+
+//---------------------Palindromes-----------------------------
+console.log("11. Is it a palindrome? " + isPalindrome(""));
+
+function isPalindrome(word){
+	var reverseWord = '';
+	for(var i = 0; i <= word.length; i++){
+		reverseWord = reverseWord + word.charAt(word.length-i);
+	}
+
+	if(reverseWord.toUpperCase() === word.toUpperCase()){
+		return true;
+	}else {
+		return false;
+	}
+}
+
+//---------------------Title Case-----------------------------
+
+console.log("12. Title Case: " + titleCase("i'm a pretty little girl!"));
+	
+
+function titleCase(phrase){
+	var titleCaseString = '';
+
+	for(var i = 0; i < phrase.length; i++){
+		if(phrase.charAt(i - 1) === " " || i === 0){
+			titleCaseString += phrase.charAt(i).toUpperCase();
+		}else{
+			titleCaseString += phrase.charAt(i);
+		}
+	}
+	return titleCaseString;
+}
+
+	</script>
+</html>
