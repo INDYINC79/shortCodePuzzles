@@ -8,7 +8,7 @@ console.log("1. Sum an Array of Numbers: " + sumOfNumbers(arrayOfNumber));
 function sumOfNumbers(anArray) {
 	var sum = 0;
 	for (var i = 0; i < anArray.length; i++){
-		sum = sum + anArray[i];
+		sum += anArray[i];
 	}
 
 	return sum;
@@ -20,7 +20,7 @@ console.log("2. Sum of Increments: " + sumOfIncrements(3, 38, 6));
 function sumOfIncrements(start, stop, increment){
 	var sum = 0;
 	for (var i = start; i <= stop; i += increment){
-		sum = sum + i;
+		sum += i;
 	}
 
 	return sum;
@@ -100,6 +100,7 @@ function randomArrayFun(anArray){
 	return anArray[i];
 }
 
+
 //-----------------------Count Occurrences of a Character in a String-----------------
 console.log("8. Occurrences of a Character: " + numOccurrences("I'm a pretty little girl!", "i"));
 
@@ -115,6 +116,57 @@ function numOccurrences(phrase, letter){
 	}
 	return letterCount;
 }
+
+//-----------------------Most Repetitions of a Character-----------------
+console.log("9. Most Characters: " + repetitions("aabbbbbcddddddee"));
+
+function repetitions(str) {
+    var counts = {};
+    for (var i in str) {
+        var ch = str[i];
+        if (ch in counts) {   
+            counts[ch]++;   
+        } else {
+            counts[ch] = 1;
+        }
+    }
+  
+    var max = 0;
+    var maxChars = [];
+    for (var ch in counts) {
+        if (counts[ch] > max) {
+            max = counts[ch];
+            maxChars = [ch];
+        } else if (counts[ch] === max) {
+            maxChars.push(ch);
+
+        }
+    }
+    return {
+        chars: maxChars.join(''),
+        count: max
+    };
+}
+
+//-----------------------Join Together Arrays Within an Array-----------------
+var arrayOfArrays = [[4, 2, 5], ["hi", 8], [3], [8, 9, 1, 4]];
+console.log("10. Array of Arrays: " + arrayConcat(arrayOfArrays));
+
+
+function arrayConcat (arrayOfArrays)  {
+      var smallArray = [];
+      var superArray = [];
+
+      for (var i = 0; i < arrayOfArrays.length; i++){
+      	smallArray[0] = arrayOfArrays[i];
+      	for (var j = 0; j < smallArray.length; j++){
+      		superArray.push(smallArray[j]);
+      	}
+      }
+
+	return superArray;
+}
+
 
 //---------------------Palindromes-----------------------------
 console.log("11. Is it a palindrome? " + isPalindrome(""));
